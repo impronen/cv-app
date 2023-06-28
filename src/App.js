@@ -1,7 +1,22 @@
-import "./App.css";
+import React, { Component } from "react";
+import GeneralInfo from "./components/General";
 
-function App() {
-  return <div className="CV App"></div>;
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      editing: true,
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <GeneralInfo />
+      </div>
+    );
+  }
 }
 
 export default App;
