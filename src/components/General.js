@@ -48,10 +48,19 @@ class GeneralInfo extends Component {
   render() {
     return (
       <div>
+        <div>
+          <label>First Name:</label>
+          <p>{this.state.firstName}</p>
+        </div>
         <input value={this.state.firstName} onChange={this.editFirstName} />
-        <p>First Name: {this.state.firstName}</p>
+
+        <div>
+          <label>Last Name:</label>
+          <p>{this.state.lastName}</p>
+        </div>
         <input value={this.state.lastName} onChange={this.editLastName} />
-        <p>Last Name: {this.state.lastName}</p>
+
+        {/* Render the remaining inputs and preview sections */}
       </div>
     );
   }

@@ -17,3 +17,12 @@ Tailwind: https://tailwindcss.com/docs/installation
 MUI https://mui.com/material-ui/getting-started/overview/
 
 If you end up implementing the PDF thing, look into https://github.com/parallax/jsPDF
+
+#### After some work on General.js
+
+Most of the components will be effectively identical, just the properties will vary.
+Think of the UI a bit at some point, do we want something that will render the result to the side in real time or something that has a "switch" to change from edit mode to render mode.
+
+### 29/6
+
+Further worked on Experience. Spread syntax is needed, when a object inside the constructor / state is updated. There is no render yet for this component, that needs to be worked on later. Education basically follows the same idea, so it's just setting up similar things on a different file.
