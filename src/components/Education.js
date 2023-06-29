@@ -59,7 +59,7 @@ class Education extends Component {
   onSubmitEducation = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({
-      schools: [...prevState.schools, prevState.schools],
+      schools: [...prevState.schools, prevState.school],
       school: {
         schoolName: "",
         degree: "",
