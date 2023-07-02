@@ -70,20 +70,54 @@ class Experience extends Component {
 
   onSubmitExperience = (e) => {
     e.preventDefault();
-    this.setState((prevState) => ({
-      jobs: [...prevState.jobs, prevState.job],
-      job: {
-        company: "",
-        position: "",
-        startDate: new Date(),
-        endDate: new Date(),
-        onGoing: false,
-        editing: false,
-      },
-    }));
+    this.setState(
+      (prevState) => ({
+        jobs: [...prevState.jobs, prevState.job],
+        job: {
+          company: "",
+          position: "",
+          startDate: new Date(),
+          endDate: new Date(),
+          onGoing: false,
+          editing: false,
+        },
+      }),
+      () => {
+        console.log(this.state.jobs);
+      }
+    );
   };
   render() {
-    return <div>{/* TODO: Do dem dom elements */}</div>;
+    return (
+      <div>
+        <h2>Work Experience</h2>
+        <form onSubmit={this.onSubmitExperience}>
+          <div>
+            <div>
+              <label>Company:</label>
+            </div>
+            <input value={this.state.company} onChange={this.editCompany} />
+
+            <div>
+              <label>Position:</label>
+            </div>
+            <input value={this.state.position} onChange={this.editPosition} />
+
+            <div>
+              <label>Start Date:</label>
+            </div>
+            <input value={this.state.startDate} onChange={this.editStartDate} />
+
+            <div>
+              <label>End Date:</label>
+            </div>
+            <input value={this.state.endDate} onChange={this.editEndDate} />
+
+            <button type="submit">Add new Experience</button>
+          </div>
+        </form>
+      </div>
+    );
   }
 }
 

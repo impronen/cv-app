@@ -72,7 +72,36 @@ class Education extends Component {
   };
 
   render() {
-    return <div>{/* TODO: Do dem dom elements */}</div>;
+    return (
+      <div>
+        <h2>Education</h2>
+        <form onSubmit={this.onSubmitExperience}>
+          <div>
+            <div>
+              <label>School:</label>
+            </div>
+            <input value={this.state.company} onChange={this.editCompany} />
+
+            <div>
+              <label>Degree:</label>
+            </div>
+            <input value={this.state.position} onChange={this.editPosition} />
+
+            <div>
+              <label>Start Date:</label>
+            </div>
+            <input value={this.state.startDate} onChange={this.editStartDate} />
+
+            <div>
+              <label>End Date:</label>
+            </div>
+            <input value={this.state.endDate} onChange={this.editEndDate} />
+
+            <button type="submit">Add new Education</button>
+          </div>
+        </form>
+      </div>
+    );
   }
 }
 

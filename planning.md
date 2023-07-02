@@ -26,3 +26,11 @@ Think of the UI a bit at some point, do we want something that will render the r
 ### 29/6
 
 Further worked on Experience. Spread syntax is needed, when a object inside the constructor / state is updated. There is no render yet for this component, that needs to be worked on later. Education basically follows the same idea, so it's just setting up similar things on a different file.
+
+### 2/7/23
+
+I have the React classes set for the components. Now I need to think of the rendering structure and how to combine them in a reasonable way.
+
+I will make it so that there is a preview button that triggers a new class for rendering, where the values added by the user will be rendered to the screen without editing options. Add a material ui toggle for this.
+
+First: add all relevant editing fields for the input classes, then add a shell for the render of the elements to the page inside some kind of an container structure.

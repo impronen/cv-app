@@ -48,19 +48,39 @@ class GeneralInfo extends Component {
   render() {
     return (
       <div>
-        <div>
-          <label>First Name:</label>
-          <p>{this.state.firstName}</p>
-        </div>
-        <input value={this.state.firstName} onChange={this.editFirstName} />
+        <h2>About you</h2>
 
-        <div>
-          <label>Last Name:</label>
-          <p>{this.state.lastName}</p>
-        </div>
-        <input value={this.state.lastName} onChange={this.editLastName} />
+        <form className="generalInfo">
+          <div>
+            <label>Title:</label>
+          </div>
+          <input value={this.state.title} onChange={this.editTitle} />
 
-        {/* Render the remaining inputs and preview sections */}
+          <div>
+            <label>First Name:</label>
+          </div>
+          <input value={this.state.firstName} onChange={this.editFirstName} />
+
+          <div>
+            <label>Last Name:</label>
+          </div>
+          <input value={this.state.lastName} onChange={this.editLastName} />
+
+          <div>
+            <label>Email:</label>
+          </div>
+          <input
+            name="email"
+            type="email"
+            value={this.state.email}
+            onChange={this.editEmail}
+          />
+
+          <div>
+            <label>Tel:</label>
+          </div>
+          <input value={this.state.telephone} onChange={this.editTel} />
+        </form>
       </div>
     );
   }
