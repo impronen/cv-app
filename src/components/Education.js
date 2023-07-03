@@ -58,34 +58,42 @@ class Education extends Component {
 
   onSubmitEducation = (e) => {
     e.preventDefault();
-    this.setState((prevState) => ({
-      schools: [...prevState.schools, prevState.school],
-      school: {
-        schoolName: "",
-        degree: "",
-        startDate: new Date(),
-        endDate: new Date(),
-        onGoing: false,
-        editing: false,
-      },
-    }));
+    this.setState(
+      (prevState) => ({
+        schools: [...prevState.schools, prevState.school],
+        school: {
+          schoolName: "",
+          degree: "",
+          startDate: new Date(),
+          endDate: new Date(),
+          onGoing: false,
+          editing: false,
+        },
+      }),
+      () => {
+        console.log(this.state.schools);
+      }
+    );
   };
 
   render() {
     return (
       <div>
         <h2>Education</h2>
-        <form onSubmit={this.onSubmitExperience}>
+        <form onSubmit={this.onSubmitEducation}>
           <div>
             <div>
               <label>School:</label>
             </div>
-            <input value={this.state.company} onChange={this.editCompany} />
+            <input
+              value={this.state.schoolName}
+              onChange={this.editInstitution}
+            />
 
             <div>
               <label>Degree:</label>
             </div>
-            <input value={this.state.position} onChange={this.editPosition} />
+            <input value={this.state.degree} onChange={this.editDegree} />
 
             <div>
               <label>Start Date:</label>

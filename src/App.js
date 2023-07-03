@@ -2,22 +2,30 @@ import React, { Component } from "react";
 import GeneralInfo from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Display from "./components/disp/Display";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      editing: true,
+      generalData: [],
+      experienceData: [],
+      educationData: [],
     };
   }
 
   render() {
     return (
       <div>
-        <GeneralInfo />
-        <Experience />
-        <Education />
+        <div>
+          <GeneralInfo />
+          <Experience />
+          <Education />
+        </div>
+        <div>
+          <Display />
+        </div>
       </div>
     );
   }
