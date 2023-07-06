@@ -1,124 +1,89 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Experience extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      job: {
-        company: "",
-        position: "",
-        startDate: new Date(),
-        endDate: new Date(),
-        onGoing: false,
-        editing: false,
-      },
-      jobs: [],
-    };
-  }
+export default function Experience(props) {
+  const [company, setCompany] = useState("");
+  const [position, setPosition] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [onGoing, setOnGoing] = useState("");
+  const [jobs, setJobs] = useState([]);
 
   // Basic editing of job properties
-  editCompany = (e) => {
-    const newCompany = e.target.value;
-    this.setState((prevState) => ({
-      job: {
-        ...prevState.job,
-        company: newCompany,
-      },
-    }));
-  };
-
-  editPosition = (e) => {
-    const newPosition = e.target.value;
-    this.setState((prevState) => ({
-      job: {
-        ...prevState.job,
-        position: newPosition,
-      },
-    }));
-  };
-
-  editStartDate = (e) => {
-    const newStartDate = e.target.value;
-    this.setState((prevState) => ({
-      job: {
-        ...prevState.job,
-        startDate: newStartDate,
-      },
-    }));
-  };
-
-  editEndDate = (e) => {
-    const newEndDate = e.target.value;
-    this.setState((prevState) => ({
-      job: {
-        ...prevState.job,
-        endDate: newEndDate,
-      },
-    }));
-  };
-
-  editOngoing = (e) => {
-    const newOngoing = e.target.checked;
-    this.setState((prevState) => ({
-      job: {
-        ...prevState.job,
-        onGoing: newOngoing,
-      },
-    }));
-  };
-
-  onSubmitExperience = (e) => {
-    e.preventDefault();
-    this.setState(
-      (prevState) => ({
-        jobs: [...prevState.jobs, prevState.job],
-        job: {
-          company: "",
-          position: "",
-          startDate: new Date(),
-          endDate: new Date(),
-          onGoing: false,
-          editing: false,
-        },
-      }),
-      () => {
-        console.log(this.state.jobs);
-      }
-    );
-  };
-  render() {
-    return (
-      <div>
-        <h2>Work Experience</h2>
-        <form onSubmit={this.onSubmitExperience}>
-          <div>
-            <div>
-              <label>Company:</label>
-            </div>
-            <input value={this.state.company} onChange={this.editCompany} />
-
-            <div>
-              <label>Position:</label>
-            </div>
-            <input value={this.state.position} onChange={this.editPosition} />
-
-            <div>
-              <label>Start Date:</label>
-            </div>
-            <input value={this.state.startDate} onChange={this.editStartDate} />
-
-            <div>
-              <label>End Date:</label>
-            </div>
-            <input value={this.state.endDate} onChange={this.editEndDate} />
-
-            <button type="submit">Add new Experience</button>
-          </div>
-        </form>
-      </div>
-    );
+  function changeCompany(e) {
+    setCompany(e.target.value);
   }
-}
 
-export default Experience;
+  function changePosition(e) {
+    setPosition(e.target.value);
+  }
+
+  function changeStartDate(e) {
+    setStartDate(e.target.value);
+  }
+
+  function changeEndDate(e) {
+    setEndDate(e.target.value);
+  }
+
+  function changeOnGoing(e) {
+    setOnGoing(e.target.checked);
+  }
+
+  function addJob(e) {
+    e.preventDefault();
+
+    const newJob = {
+      company: company,
+      position: position,
+      startDate: startDate,
+      endDate: endDate,
+      onGoing: onGoing,
+    };
+
+    setJobs((prevJobs) => [...prevJobs, newJob]);
+
+    setCompany("");
+    setPosition("");
+    setStartDate("");
+    setEndDate("");
+    setOnGoing("");
+
+    console.log(jobs);
+  }
+
+  return (
+    <div>
+      <h2>Work Experience</h2>
+      <form onSubmit={addJob}>
+        <div>
+          <div>
+            <label>Company:</label>
+          </div>
+          <input value={company} onChange={changeCompany} />
+
+          <div>
+            <label>Position:</label>
+          </div>
+          <input value={position} onChange={changePosition} />
+
+          <div>
+            <label>Start Date:</label>
+          </div>
+          <input value={startDate} onChange={changeStartDate} type="date" />
+
+          <div>
+            <label>End Date:</label>
+          </div>
+          <input value={endDate} onChange={changeEndDate} type="date" />
+
+          <div>
+            <label>Ongoing:</label>
+          </div>
+          <input type="checkbox" checked={onGoing} onChange={changeOnGoing} />
+
+          <button type="submit">Add new Experience</button>
+        </div>
+      </form>
+    </div>
+  );
+}

@@ -1,89 +1,61 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class GeneralInfo extends Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    title: "",
-    email: "",
-    telephone: "",
-    edit: false,
-  };
+export default function GeneralInfo() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [title, setTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
 
-  editFirstName = (e) => {
-    const newName = e.target.value;
-    this.setState({
-      firstName: newName,
-    });
-  };
-
-  editLastName = (e) => {
-    const newName = e.target.value;
-    this.setState({
-      lastName: newName,
-    });
-  };
-
-  editTitle = (e) => {
-    const newTitle = e.target.value;
-    this.setState({
-      title: newTitle,
-    });
-  };
-
-  editEmail = (e) => {
-    const newEmail = e.target.value;
-    this.setState({
-      email: newEmail,
-    });
-  };
-
-  editTel = (e) => {
-    const newTel = e.target.value;
-    this.setState({
-      telephone: newTel,
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <h2>About you</h2>
-
-        <form className="generalInfo">
-          <div>
-            <label>Title:</label>
-          </div>
-          <input value={this.state.title} onChange={this.editTitle} />
-
-          <div>
-            <label>First Name:</label>
-          </div>
-          <input value={this.state.firstName} onChange={this.editFirstName} />
-
-          <div>
-            <label>Last Name:</label>
-          </div>
-          <input value={this.state.lastName} onChange={this.editLastName} />
-
-          <div>
-            <label>Email:</label>
-          </div>
-          <input
-            name="email"
-            type="email"
-            value={this.state.email}
-            onChange={this.editEmail}
-          />
-
-          <div>
-            <label>Tel:</label>
-          </div>
-          <input value={this.state.telephone} onChange={this.editTel} />
-        </form>
-      </div>
-    );
+  function changeName(e) {
+    setFirstName(e.target.value);
   }
-}
+  function changeLastName(e) {
+    setLastName(e.target.value);
+  }
 
-export default GeneralInfo;
+  function changeTitle(e) {
+    setTitle(e.target.value);
+  }
+
+  function changeEmail(e) {
+    setEmail(e.target.value);
+  }
+
+  function changeTelephone(e) {
+    setTelephone(e.target.value);
+  }
+
+  return (
+    <div>
+      <h2>About you</h2>
+
+      <form className="generalInfo">
+        <div>
+          <label>Title:</label>
+        </div>
+        <input value={title} onChange={changeTitle} />
+
+        <div>
+          <label>First Name:</label>
+        </div>
+        <input value={firstName} onChange={changeName} />
+
+        <div>
+          <label>Last Name:</label>
+        </div>
+        <input value={lastName} onChange={changeLastName} />
+
+        <div>
+          <label>Email:</label>
+        </div>
+        <input name="email" type="email" value={email} onChange={changeEmail} />
+
+        <div>
+          <label>Tel:</label>
+        </div>
+        <input value={telephone} onChange={changeTelephone} />
+      </form>
+    </div>
+  );
+}

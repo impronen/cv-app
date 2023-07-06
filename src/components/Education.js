@@ -1,116 +1,87 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Education extends Component {
-  constructor(props) {
-    super(props);
+export default function Education() {
+  const [schoolName, setSchool] = useState("");
+  const [degree, setDegree] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [onGoing, setOnGoing] = useState("");
+  const [schools, setSchools] = useState([]);
 
-    this.state = {
-      school: {
-        schoolName: "",
-        degree: "",
-        startDate: new Date(),
-        endDate: new Date(),
-        onGoing: false,
-        editing: false,
-      },
-      schools: [],
-    };
+  function changeSchoolName(e) {
+    setSchool(e.target.value);
   }
-  editInstitution = (e) => {
-    const newInstitution = e.target.value;
-    this.setState((prevState) => ({
-      school: {
-        ...prevState.job,
-        schoolName: newInstitution,
-      },
-    }));
-  };
 
-  editDegree = (e) => {
-    const newDegree = e.target.value;
-    this.setState((prevState) => ({
-      school: {
-        ...prevState.job,
-        degree: newDegree,
-      },
-    }));
-  };
+  function changeDegree(e) {
+    setDegree(e.target.value);
+  }
 
-  editStartDate = (e) => {
-    const newStartDate = e.target.value;
-    this.setState((prevState) => ({
-      school: {
-        ...prevState.job,
-        startDate: newStartDate,
-      },
-    }));
-  };
+  function changeStartDate(e) {
+    setStartDate(e.target.value);
+  }
 
-  editEndDate = (e) => {
-    const newEndDate = e.target.value;
-    this.setState((prevState) => ({
-      school: {
-        ...prevState.job,
-        endDate: newEndDate,
-      },
-    }));
-  };
+  function changeEndDate(e) {
+    setEndDate(e.target.value);
+  }
 
-  onSubmitEducation = (e) => {
+  function changeOnGoing(e) {
+    setOnGoing(e.target.checked);
+  }
+
+  function addEducation(e) {
     e.preventDefault();
-    this.setState(
-      (prevState) => ({
-        schools: [...prevState.schools, prevState.school],
-        school: {
-          schoolName: "",
-          degree: "",
-          startDate: new Date(),
-          endDate: new Date(),
-          onGoing: false,
-          editing: false,
-        },
-      }),
-      () => {
-        console.log(this.state.schools);
-      }
-    );
-  };
 
-  render() {
-    return (
-      <div>
-        <h2>Education</h2>
-        <form onSubmit={this.onSubmitEducation}>
-          <div>
-            <div>
-              <label>School:</label>
-            </div>
-            <input
-              value={this.state.schoolName}
-              onChange={this.editInstitution}
-            />
+    const newEducation = {
+      schoolName: schoolName,
+      degree: degree,
+      startDate: startDate,
+      endDate: endDate,
+      onGoing: onGoing,
+    };
+    setSchools((prevSchools) => [...prevSchools, newEducation]);
 
-            <div>
-              <label>Degree:</label>
-            </div>
-            <input value={this.state.degree} onChange={this.editDegree} />
+    setSchool("");
+    setDegree("");
+    setStartDate("");
+    setEndDate("");
+    setOnGoing("");
 
-            <div>
-              <label>Start Date:</label>
-            </div>
-            <input value={this.state.startDate} onChange={this.editStartDate} />
-
-            <div>
-              <label>End Date:</label>
-            </div>
-            <input value={this.state.endDate} onChange={this.editEndDate} />
-
-            <button type="submit">Add new Education</button>
-          </div>
-        </form>
-      </div>
-    );
+    console.log(schools);
   }
-}
 
-export default Education;
+  return (
+    <div>
+      <h2>Education</h2>
+      <form onSubmit={addEducation}>
+        <div>
+          <div>
+            <label>School:</label>
+          </div>
+          <input value={schoolName} onChange={changeSchoolName} />
+
+          <div>
+            <label>Degree:</label>
+          </div>
+          <input value={degree} onChange={changeDegree} />
+
+          <div>
+            <label>Start Date:</label>
+          </div>
+          <input value={startDate} onChange={changeStartDate} type="date" />
+
+          <div>
+            <label>End Date:</label>
+          </div>
+          <input value={endDate} onChange={changeEndDate} type="date" />
+
+          <div>
+            <label>Ongoing:</label>
+          </div>
+          <input type="checkbox" checked={onGoing} onChange={changeOnGoing} />
+
+          <button type="submit">Add new Education</button>
+        </div>
+      </form>
+    </div>
+  );
+}

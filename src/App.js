@@ -15,16 +15,22 @@ class App extends Component {
     };
   }
 
+  updateExperienceData = (experience) => {
+    this.setState((prevState) => ({
+      experienceData: [...prevState.experienceData, experience],
+    }));
+  };
+
   render() {
     return (
       <div>
         <div>
           <GeneralInfo />
-          <Experience />
+          <Experience updateExperienceData={this.updateExperienceData} />
           <Education />
         </div>
         <div>
-          <Display />
+          <Display experienceData={this.state.experienceData} />
         </div>
       </div>
     );
