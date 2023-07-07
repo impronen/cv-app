@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function Experience(props) {
+const dayjs = require("dayjs");
+
+export default function Experience({ updateExperienceData }) {
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -48,8 +50,12 @@ export default function Experience(props) {
     setEndDate("");
     setOnGoing("");
 
-    console.log(jobs);
+    updateExperienceData(jobs); // Pass the updated jobs array to the prop function
   }
+
+  useEffect(() => {
+    console.log(jobs);
+  }, [jobs]);
 
   return (
     <div>

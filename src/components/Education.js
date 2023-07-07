@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Education() {
   const [schoolName, setSchool] = useState("");
@@ -28,6 +28,10 @@ export default function Education() {
     setOnGoing(e.target.checked);
   }
 
+  useEffect(() => {
+    console.log(schools);
+  }, [schools]);
+
   function addEducation(e) {
     e.preventDefault();
 
@@ -45,8 +49,6 @@ export default function Education() {
     setStartDate("");
     setEndDate("");
     setOnGoing("");
-
-    console.log(schools);
   }
 
   return (

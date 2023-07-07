@@ -1,40 +1,40 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import GeneralInfo from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Display from "./components/disp/Display";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  const [experienceData, setExperienceData] = useState([]);
+  const [generalData, setGeneralData] = useState([]);
+  const [educationData, setEducationData] = useState([]);
 
-    this.state = {
-      generalData: [],
-      experienceData: [],
-      educationData: [],
-    };
-  }
-
-  updateExperienceData = (experience) => {
-    this.setState((prevState) => ({
-      experienceData: [...prevState.experienceData, experience],
-    }));
+  const updateExperienceData = (experience) => {
+    setExperienceData(experience);
   };
 
-  render() {
-    return (
-      <div>
-        <div>
-          <GeneralInfo />
-          <Experience updateExperienceData={this.updateExperienceData} />
-          <Education />
-        </div>
-        <div>
-          <Display experienceData={this.state.experienceData} />
-        </div>
-      </div>
-    );
-  }
-}
+  const updateGeneralData = (general) => {
+    setGeneralData(general);
+  };
 
-export default App;
+  const updateEducationData = (education) => {
+    setEducationData(education);
+  };
+
+  return (
+    <div className="mainContainer">
+      <div className="editInfo">
+        <GeneralInfo updateGeneralData={updateGeneralData} />
+        <Experience updateExperienceData={updateExperienceData} />{" "}
+        <Education updateGeneralData={updateEducationData} />
+      </div>
+      <div className="displayInfo">
+        <Display
+          generalData={generalData}
+          experienceData={experienceData}
+          educationData={educationData}
+        />
+      </div>
+    </div>
+  );
+}

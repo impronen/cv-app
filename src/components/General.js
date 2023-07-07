@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function GeneralInfo() {
+export default function GeneralInfo({ updateGeneralData }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [title, setTitle] = useState("");
@@ -9,21 +9,27 @@ export default function GeneralInfo() {
 
   function changeName(e) {
     setFirstName(e.target.value);
+    updateGeneralData({ firstName: e.target.value });
   }
+
   function changeLastName(e) {
     setLastName(e.target.value);
+    updateGeneralData({ lastName: e.target.value });
   }
 
   function changeTitle(e) {
     setTitle(e.target.value);
+    updateGeneralData({ title: e.target.value });
   }
 
   function changeEmail(e) {
     setEmail(e.target.value);
+    updateGeneralData({ email: e.target.value });
   }
 
   function changeTelephone(e) {
     setTelephone(e.target.value);
+    updateGeneralData({ telephone: e.target.value });
   }
 
   return (

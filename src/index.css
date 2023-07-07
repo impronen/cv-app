@@ -16,6 +16,11 @@ code {
     monospace;
 }
 
+.mainContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
 input[type="email"]:invalid {
   box-shadow: 0 0 5px 1px #a80608;
 }

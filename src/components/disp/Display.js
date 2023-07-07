@@ -1,33 +1,30 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class Display extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      generalData: [],
-      experienceData: [],
-      educationData: [],
-    };
-  }
+export default function Display(props) {
+  const { generalData, experienceData, educationData } = props;
 
-  updateExperienceData = (experience) => {
-    this.setState((prevState) => ({
-      experienceData: [...prevState.experienceData, experience],
-    }));
-  };
-  render() {
-    return (
-      <div>
-        <h2>Display Component</h2>
-        <h3>Experience:</h3>
-        <ul>
-          {this.props.experienceData.map((experience, index) => (
-            <li key={index}>{experience}</li>
-          ))}
-        </ul>
+  return (
+    <div>
+      <h2>Preview</h2>
+      <h3>About</h3>
+      <div className="name">
+        <h4>{generalData.firstName}</h4>
+        <h4>{generalData.lastName}</h4>
       </div>
-    );
-  }
+      <h3>Experience</h3>
+      <div>
+        {experienceData.map((job, index) => (
+          <div>
+            <h4>
+              {" "}
+              {job.company} / {""}
+              {job.position}
+            </h4>
+            <h5>Start Date: {job.startDate}</h5>
+            <h5>End Date: {job.endDate}</h5>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
-
-export default Display;
