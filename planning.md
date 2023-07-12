@@ -34,3 +34,5 @@ I have the React classes set for the components. Now I need to think of the rend
 I will make it so that there is a preview button that triggers a new class for rendering, where the values added by the user will be rendered to the screen without editing options. Add a material ui toggle for this.
 
 First: add all relevant editing fields for the input classes, then add a shell for the render of the elements to the page inside some kind of an container structure.
+
+### 12/07/2023

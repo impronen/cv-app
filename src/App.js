@@ -25,8 +25,8 @@ export default function App() {
     <div className="mainContainer">
       <div className="editInfo">
         <GeneralInfo updateGeneralData={updateGeneralData} />
-        <Experience updateExperienceData={updateExperienceData} />{" "}
-        <Education updateGeneralData={updateEducationData} />
+        <Experience updateExperienceData={updateExperienceData} />
+        <Education updateEducationData={updateEducationData} />
       </div>
       <div className="displayInfo">
         <Display

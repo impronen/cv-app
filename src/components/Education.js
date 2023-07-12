@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function Education() {
+export default function Education({ updateEducationData }) {
   const [schoolName, setSchool] = useState("");
   const [degree, setDegree] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -28,10 +28,6 @@ export default function Education() {
     setOnGoing(e.target.checked);
   }
 
-  useEffect(() => {
-    console.log(schools);
-  }, [schools]);
-
   function addEducation(e) {
     e.preventDefault();
 
@@ -42,6 +38,7 @@ export default function Education() {
       endDate: endDate,
       onGoing: onGoing,
     };
+
     setSchools((prevSchools) => [...prevSchools, newEducation]);
 
     setSchool("");
@@ -50,6 +47,10 @@ export default function Education() {
     setEndDate("");
     setOnGoing("");
   }
+
+  useEffect(() => {
+    updateEducationData(schools);
+  }, [schools, updateEducationData]);
 
   return (
     <div>

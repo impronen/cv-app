@@ -21,6 +21,11 @@ code {
   justify-content: space-around;
 }
 
+.name {
+  display: flex;
+  justify-content: space-between;
+}
+
 input[type="email"]:invalid {
   box-shadow: 0 0 5px 1px #a80608;
 }
