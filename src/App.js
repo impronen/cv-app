@@ -3,6 +3,7 @@ import GeneralInfo from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Display from "./components/disp/Display";
+import Header from "./components/Header";
 
 export default function App() {
   const [experienceData, setExperienceData] = useState([]);
@@ -22,18 +23,21 @@ export default function App() {
   };
 
   return (
-    <div className="mainContainer">
-      <div className="editInfo">
-        <GeneralInfo updateGeneralData={updateGeneralData} />
-        <Experience updateExperienceData={updateExperienceData} />
-        <Education updateEducationData={updateEducationData} />
-      </div>
-      <div className="displayInfo">
-        <Display
-          generalData={generalData}
-          experienceData={experienceData}
-          educationData={educationData}
-        />
+    <div>
+      <Header />
+      <div className="mainContainer">
+        <div className="editInfo">
+          <GeneralInfo updateGeneralData={updateGeneralData} />
+          <Experience updateExperienceData={updateExperienceData} />
+          <Education updateEducationData={updateEducationData} />
+        </div>
+        <div className="displayInfo">
+          <Display
+            generalData={generalData}
+            experienceData={experienceData}
+            educationData={educationData}
+          />
+        </div>
       </div>
     </div>
   );

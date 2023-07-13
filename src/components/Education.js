@@ -54,8 +54,8 @@ export default function Education({ updateEducationData }) {
 
   return (
     <div>
-      <h2>Education</h2>
-      <form onSubmit={addEducation}>
+      <h2 className="listHeading">Add Education</h2>
+      <form className="educationForm" onSubmit={addEducation}>
         <div>
           <div>
             <label>School:</label>
@@ -77,10 +77,15 @@ export default function Education({ updateEducationData }) {
           </div>
           <input value={endDate} onChange={changeEndDate} type="date" />
 
-          <div>
-            <label>Ongoing:</label>
+          <div className="checkboxContainer">
+            <label htmlFor="ongoingCheckbox">Ongoing:</label>
+            <input
+              id="ongoingCheckbox"
+              type="checkbox"
+              checked={onGoing}
+              onChange={changeOnGoing}
+            />
           </div>
-          <input type="checkbox" checked={onGoing} onChange={changeOnGoing} />
 
           <button type="submit">Add new Education</button>
         </div>

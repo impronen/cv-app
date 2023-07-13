@@ -55,8 +55,8 @@ export default function Experience({ updateExperienceData }) {
 
   return (
     <div>
-      <h2>Work Experience</h2>
-      <form onSubmit={addJob}>
+      <h2 className="listHeading">Add Work Experience</h2>
+      <form className="experienceForm" onSubmit={addJob}>
         <div>
           <div>
             <label>Company:</label>
@@ -78,10 +78,15 @@ export default function Experience({ updateExperienceData }) {
           </div>
           <input value={endDate} onChange={changeEndDate} type="date" />
 
-          <div>
-            <label>Ongoing:</label>
+          <div className="checkboxContainer">
+            <label htmlFor="ongoingCheckbox">Ongoing:</label>
+            <input
+              id="ongoingCheckbox"
+              type="checkbox"
+              checked={onGoing}
+              onChange={changeOnGoing}
+            />
           </div>
-          <input type="checkbox" checked={onGoing} onChange={changeOnGoing} />
 
           <button type="submit">Add new Experience</button>
         </div>

@@ -23,7 +23,8 @@ export default function GeneralInfo({ updateGeneralData }) {
 
   return (
     <div>
-      <h2>About you</h2>
+      <h2 className="mainHeading">Edit your details here</h2>
+      <h2>Info</h2>
 
       <form className="generalInfo">
         <div>
