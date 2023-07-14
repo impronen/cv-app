@@ -57,26 +57,25 @@ export default function Education({ updateEducationData }) {
       <h2 className="listHeading">Add Education</h2>
       <form className="educationForm" onSubmit={addEducation}>
         <div>
-          <div>
+          <div className="formElement nameElement">
             <label>School:</label>
+            <input value={schoolName} onChange={changeSchoolName} />
           </div>
-          <input value={schoolName} onChange={changeSchoolName} />
-
-          <div>
+          <div className="formElement nameElement">
             <label>Degree:</label>
+            <input value={degree} onChange={changeDegree} />
           </div>
-          <input value={degree} onChange={changeDegree} />
 
-          <div>
-            <label>Start Date:</label>
+          <div className="formElement dateRow">
+            <label className="dateLabel">Start Date</label>
+
+            <input value={startDate} onChange={changeStartDate} type="month" />
           </div>
-          <input value={startDate} onChange={changeStartDate} type="date" />
+          <div className="formElement dateRow">
+            <label className="dateLabel">End Date</label>
 
-          <div>
-            <label>End Date:</label>
+            <input value={endDate} onChange={changeEndDate} type="month" />
           </div>
-          <input value={endDate} onChange={changeEndDate} type="date" />
-
           <div className="checkboxContainer">
             <label htmlFor="ongoingCheckbox">Ongoing:</label>
             <input

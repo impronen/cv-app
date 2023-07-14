@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Display(props) {
   const { generalData, experienceData, educationData } = props;
 
   return (
     <div className="renderContainer">
-      <h2 className="mainHeading">Preview your CV here</h2>
       <div className="infoContainer">
         <div>
           <h4 className="title">{generalData.title}</h4>

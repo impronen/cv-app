@@ -22,61 +22,72 @@ export default function GeneralInfo({ updateGeneralData }) {
   }, [generalData, updateGeneralData]);
 
   return (
-    <div>
+    <>
       <h2 className="mainHeading">Edit your details here</h2>
       <h2>Info</h2>
 
       <form className="generalInfo">
-        <div>
-          <label>Title:</label>
-        </div>
-        <input
-          name="title"
-          type="text"
-          value={generalData.title}
-          onChange={handleChange}
-        />
+        <div className="formElement">
+          <label className="label">Title:</label>
 
-        <div>
-          <label>First Name:</label>
+          <input
+            name="title"
+            type="text"
+            className="input"
+            value={generalData.title}
+            onChange={handleChange}
+          />
         </div>
-        <input
-          name="firstName"
-          type="text"
-          value={generalData.firstName}
-          onChange={handleChange}
-        />
 
-        <div>
-          <label>Last Name:</label>
-        </div>
-        <input
-          name="lastName"
-          type="text"
-          value={generalData.lastName}
-          onChange={handleChange}
-        />
+        <div className="formElement nameElement">
+          <div>
+            <label className="label">First Name:</label>
 
-        <div>
-          <label>Email:</label>
-        </div>
-        <input
-          name="email"
-          type="email"
-          value={generalData.email}
-          onChange={handleChange}
-        />
+            <input
+              name="firstName"
+              type="text"
+              className="input"
+              value={generalData.firstName}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label className="label">Last Name:</label>
 
-        <div>
-          <label>Tel:</label>
+            <input
+              name="lastName"
+              type="text"
+              className="input"
+              value={generalData.lastName}
+              onChange={handleChange}
+            />
+          </div>
         </div>
-        <input
-          name="telephone"
-          type="tel"
-          value={generalData.telephone}
-          onChange={handleChange}
-        />
+
+        <div className="formElement">
+          <label className="label">Email:</label>
+
+          <input
+            name="email"
+            type="email"
+            className="input"
+            value={generalData.email}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="formElement">
+          <label className="label">Tel:</label>
+
+          <input
+            name="telephone"
+            type="tel"
+            className="input"
+            value={generalData.telephone}
+            onChange={handleChange}
+          />
+        </div>
       </form>
-    </div>
+    </>
   );
 }

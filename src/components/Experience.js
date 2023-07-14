@@ -58,28 +58,26 @@ export default function Experience({ updateExperienceData }) {
       <h2 className="listHeading">Add Work Experience</h2>
       <form className="experienceForm" onSubmit={addJob}>
         <div>
-          <div>
+          <div className="formElement nameElement">
             <label>Company:</label>
+            <input value={company} onChange={changeCompany} />
           </div>
-          <input value={company} onChange={changeCompany} />
-
-          <div>
+          <div className="formElement nameElement">
             <label>Position:</label>
+            <input value={position} onChange={changePosition} />
           </div>
-          <input value={position} onChange={changePosition} />
 
-          <div>
-            <label>Start Date:</label>
+          <div className="formElement dateRow">
+            <label className="dateLabel">Start Date</label>
+
+            <input value={startDate} onChange={changeStartDate} type="month" />
           </div>
-          <input value={startDate} onChange={changeStartDate} type="date" />
-
-          <div>
-            <label>End Date:</label>
+          <div className="formElement dateRow">
+            <label className="dateLabel">End Date</label>
+            <input value={endDate} onChange={changeEndDate} type="month" />
           </div>
-          <input value={endDate} onChange={changeEndDate} type="date" />
-
           <div className="checkboxContainer">
-            <label htmlFor="ongoingCheckbox">Ongoing:</label>
+            <label htmlFor="ongoingCheckbox">Ongoing</label>
             <input
               id="ongoingCheckbox"
               type="checkbox"
