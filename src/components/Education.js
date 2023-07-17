@@ -57,11 +57,11 @@ export default function Education({ updateEducationData }) {
       <h2 className="listHeading">Add Education</h2>
       <form className="educationForm" onSubmit={addEducation}>
         <div>
-          <div className="formElement nameElement">
+          <div className="formElement nameElement fullWidthInput">
             <label>School:</label>
             <input value={schoolName} onChange={changeSchoolName} />
           </div>
-          <div className="formElement nameElement">
+          <div className="formElement nameElement fullWidthInput">
             <label>Degree:</label>
             <input value={degree} onChange={changeDegree} />
           </div>

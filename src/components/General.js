@@ -27,7 +27,7 @@ export default function GeneralInfo({ updateGeneralData }) {
       <h2>Info</h2>
 
       <form className="generalInfo">
-        <div className="formElement">
+        <div className="formElement fullWidthInput">
           <label className="label">Title:</label>
 
           <input
@@ -64,7 +64,7 @@ export default function GeneralInfo({ updateGeneralData }) {
           </div>
         </div>
 
-        <div className="formElement">
+        <div className="formElement fullWidthInput">
           <label className="label">Email:</label>
 
           <input
