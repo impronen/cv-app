@@ -27,8 +27,8 @@ export default function GeneralInfo({ updateGeneralData }) {
       <h2>Info</h2>
 
       <form className="generalInfo">
-        <div className="formElement fullWidthInput">
-          <label className="label">Title:</label>
+        <div className="formElement">
+          <label>Title</label>
 
           <input
             name="title"
@@ -39,9 +39,9 @@ export default function GeneralInfo({ updateGeneralData }) {
           />
         </div>
 
-        <div className="formElement nameElement">
-          <div>
-            <label className="label">First Name:</label>
+        <div className="formElement">
+          <>
+            <label>First Name</label>
 
             <input
               name="firstName"
@@ -50,9 +50,11 @@ export default function GeneralInfo({ updateGeneralData }) {
               value={generalData.firstName}
               onChange={handleChange}
             />
-          </div>
-          <div>
-            <label className="label">Last Name:</label>
+          </>
+        </div>
+        <div className="formElement">
+          <>
+            <label>Last Name</label>
 
             <input
               name="lastName"
@@ -61,11 +63,11 @@ export default function GeneralInfo({ updateGeneralData }) {
               value={generalData.lastName}
               onChange={handleChange}
             />
-          </div>
+          </>
         </div>
 
-        <div className="formElement fullWidthInput">
-          <label className="label">Email:</label>
+        <div className="formElement">
+          <label>Email</label>
 
           <input
             name="email"
@@ -77,7 +79,7 @@ export default function GeneralInfo({ updateGeneralData }) {
         </div>
 
         <div className="formElement">
-          <label className="label">Tel:</label>
+          <label>Tel</label>
 
           <input
             name="telephone"

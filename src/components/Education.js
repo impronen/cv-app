@@ -58,11 +58,11 @@ export default function Education({ updateEducationData }) {
       <form className="educationForm" onSubmit={addEducation}>
         <div>
           <div className="formElement nameElement fullWidthInput">
-            <label>School:</label>
+            <label>School</label>
             <input value={schoolName} onChange={changeSchoolName} />
           </div>
           <div className="formElement nameElement fullWidthInput">
-            <label>Degree:</label>
+            <label>Degree</label>
             <input value={degree} onChange={changeDegree} />
           </div>
 

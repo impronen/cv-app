@@ -10,28 +10,6 @@ body {
 button {
   padding: 5px;
   margin-top: 10px;
-  border-radius: 5px;
-}
-
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-}
-
-input {
-  margin-top: 5px;
-  margin-left: 5px;
-  width: 90%;
-}
-
-input[type="month"] {
-  width: 59%;
-}
-
-input[type="email"]:invalid {
-  box-shadow: 0 0 5px 1px #a80608;
 }
 
 .pageTitle {
@@ -52,8 +30,7 @@ input[type="email"]:invalid {
 .experienceForm {
   display: flex;
   flex-direction: column;
-  padding: 5%;
-  border-radius: 10px;
+  padding: 7%;
   background-color: #666a86;
 }
 
@@ -63,95 +40,58 @@ input[type="email"]:invalid {
 }
 
 .formElement {
-  display: flex;
-  align-items: center;
   margin-bottom: 10px;
+  margin: 0.5em 0 0.5em 0;
+  position: relative;
 }
 
-.formElement .label {
-  min-width: 100px;
-  text-align: right;
+.formElement input {
+  width: 90%;
+  font-size: 100%;
+  padding: 0.8em;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  transition: all 0.3s ease;
 }
 
-.formElement .input {
-  flex: 1;
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+.formElement label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+
+.formElement input:focus {
+  border-color: rgb(75, 188, 196);
+  outline: none;
+}
+
+.formElement input:focus + label,
+.formElement input:valid + label {
+  transform: translateX(-500%) scale(0.9);
+  margin: 0em;
+  margin-left: 1.3em;
+  padding: 0.4em;
+  background-color: #e8e8e8;
+}
+
+input[type="email"]:invalid {
+  border: 1px solid #a80608;
 }
 
 .listHeading {
   color: #353745;
 }
 
-.nameElement .input {
-  width: auto;
-}
-
 .checkboxContainer {
-  display: flex;
   align-items: center;
   max-width: fit-content;
   margin-top: 10px;
 }
-
-.dateRow {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.dateLabel {
-  min-width: 30%;
-  margin-right: 1%;
-}
-
-.input {
-  appearance: none;
-  background-color: #ffffff;
-  border: 1px solid #e8ddb5;
-  border-radius: 2px;
-  padding: 3px;
-}
-
-input:focus {
-  background-color: rgb(216, 236, 255);
-  outline: none;
-  border: 1px solid #e8ddb5;
-}
-
-.fullWidthInput {
-  display: flex;
-  align-items: center;
-}
-
-.fullWidthInput .label {
-  min-width: 100px;
-  text-align: right;
-  margin-right: 10px;
-}
-
-.fullWidthInput .input {
-  flex: 1;
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.nameElement {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nameElement .input {
-  width: 50%;
-  margin-left: 10px;
-}
-
-/* RIGHT SIDE OF PAGE */
 
 .displayInfo {
   min-width: 40%;

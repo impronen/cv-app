@@ -59,11 +59,11 @@ export default function Experience({ updateExperienceData }) {
       <form className="experienceForm" onSubmit={addJob}>
         <div>
           <div className="formElement nameElement fullWidthInput">
-            <label>Company:</label>
+            <label>Company</label>
             <input value={company} onChange={changeCompany} />
           </div>
           <div className="formElement nameElement fullWidthInput">
-            <label>Position:</label>
+            <label>Position</label>
             <input value={position} onChange={changePosition} />
           </div>
 
