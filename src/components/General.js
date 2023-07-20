@@ -24,8 +24,7 @@ export default function GeneralInfo({ updateGeneralData }) {
   return (
     <>
       <h2 className="mainHeading">Edit your details here</h2>
-      <h2>Info</h2>
-
+      
       <form className="generalInfo">
         <div className="formElement">
           <label>Title</label>
@@ -79,7 +78,9 @@ export default function GeneralInfo({ updateGeneralData }) {
         </div>
 
         <div className="formElement">
-          <label>Tel</label>
+          <label>
+            <span>Tel</span>
+          </label>
 
           <input
             name="telephone"

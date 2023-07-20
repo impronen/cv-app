@@ -35,4 +35,14 @@ I will make it so that there is a preview button that triggers a new class for r
 
 First: add all relevant editing fields for the input classes, then add a shell for the render of the elements to the page inside some kind of an container structure.
 
-### 12/07/2023
+## Questions about CSS with react
+
+I have been attempting to make my CV app form labels dissapear with a transform when they are selected. I have them inside the form input and then I want to have a transform for them to disappear move out of the way when the user selects the element. The full code is here https://replit.com/@anterotienaho/cv-app.
+
+I have set up the form elements with a class .formElement and then attempt to use a selector combination of .formElement input:focus + label, .formElement input:valid + label and I have also tried this syntax .formElement :is(input:focus, input:valid) to apply the transform (either a opacity change or some fancier animation).
+
+These would a) make the label go away from the input field when it is in focus + keep them away after a value has been entered.
+
+But my code just isn't working, the transitions on the labels won't run when I select the form input. I cannot seem to seem to understand why not. Similar syntax works in this universe.io form element https://uiverse.io/Maximinodotpy/thin-sheep-13, which I used as an inspiration.
+
+I haven't been able to find anything that would override the selectors. Any ideas where to head to with this?

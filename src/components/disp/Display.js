@@ -4,7 +4,7 @@ export default function Display(props) {
   const { generalData, experienceData, educationData } = props;
 
   return (
-    <div className="renderContainer">
+    <>
       <div className="infoContainer">
         <div>
           <h4 className="title">{generalData.title}</h4>
@@ -16,7 +16,7 @@ export default function Display(props) {
         </div>
         <div className="contactInfo">
           <p>
-            {generalData.email} / {generalData.telephone}
+            {generalData.email} &nbsp; {generalData.telephone}
           </p>
         </div>
         <hr />
@@ -26,7 +26,7 @@ export default function Display(props) {
             <div>
               <h4 className="itemHeading">
                 {" "}
-                {job.company} / {""}
+                {job.company} | {""}
                 {job.position}
               </h4>
               <p>
@@ -42,16 +42,16 @@ export default function Display(props) {
             <div>
               <h4 className="itemHeading">
                 {" "}
-                {school.schoolName} / {""}
+                {school.schoolName} | {""}
                 {school.degree}
               </h4>
               <p>
-                Start: {school.startDate}| End: {school.endDate}
+                Start  {school.startDate} | End  {school.endDate}
               </p>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }
