@@ -88,24 +88,21 @@ label {
   opacity: 0;
 }
 
-
 input[type="email"]:invalid {
   border-color: #a80608;
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-    transition: background-color 600000s 0s, color 600000s 0s;
+  transition: background-color 600000s 0s, color 600000s 0s;
 }
 input[data-autocompleted] {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 input[type="month"] {
   font-size: 100%;
 }
-
 
 .checkboxContainer {
   display: flex;
