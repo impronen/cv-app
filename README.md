@@ -8,4 +8,4 @@ I soon found the use of classes in React to be frustrating and opted to refactor
 
 I also tested deploying with Vercel, after using only GH Pages earlier.
 
-Live version here: cv-app-rho.vercel.app
+Live version [here](cv-app-rho.vercel.app):
