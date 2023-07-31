@@ -1,53 +1,45 @@
 import React, { useState } from "react";
 
 export default function Education({ updateEducationData }) {
-  const [schoolName, setSchool] = useState("");
-  const [degree, setDegree] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [onGoing, setOnGoing] = useState("");
-  const [schools, setSchools] = useState([]);
+  const [state, setState] = useState({
+    schoolName: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    onGoing: "",
+    schools: [],
+  });
 
-  function changeSchoolName(e) {
-    setSchool(e.target.value);
-  }
-
-  function changeDegree(e) {
-    setDegree(e.target.value);
-  }
-
-  function changeStartDate(e) {
-    setStartDate(e.target.value);
-  }
-
-  function changeEndDate(e) {
-    setEndDate(e.target.value);
-  }
-
-  function changeOnGoing(e) {
-    setOnGoing(e.target.checked);
+  function handleChange(e) {
+    const value = e.target.value;
+    setState({
+      ...state,
+      [e.target.name]: value,
+    });
   }
 
   function addEducation(e) {
     e.preventDefault();
 
     const newEducation = {
-      schoolName: schoolName,
-      degree: degree,
-      startDate: startDate,
-      endDate: endDate,
-      onGoing: onGoing,
+      schoolName: state.schoolName,
+      degree: state.degree,
+      startDate: state.startDate,
+      endDate: state.endDate,
+      onGoing: state.onGoing,
     };
 
-    setSchools((prevSchools) => [...prevSchools, newEducation]);
+    setState((prevState) => ({
+      ...prevState,
+      schools: [...prevState.schools, newEducation],
+      schoolName: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      onGoing: false,
+    }));
 
     updateEducationData((prevSchools) => [...prevSchools, newEducation]);
-
-    setSchool("");
-    setDegree("");
-    setStartDate("");
-    setEndDate("");
-    setOnGoing("");
   }
 
   return (
@@ -57,30 +49,45 @@ export default function Education({ updateEducationData }) {
         <div>
           <div className="formElement nameElement fullWidthInput">
             <label>School</label>
-            <input value={schoolName} onChange={changeSchoolName} />
+            <input
+              name="schoolName"
+              value={state.schoolName}
+              onChange={handleChange}
+            />
           </div>
           <div className="formElement nameElement fullWidthInput">
             <label>Degree</label>
-            <input value={degree} onChange={changeDegree} />
+            <input name="degree" value={state.degree} onChange={handleChange} />
           </div>
 
           <div className="formElement dateRow">
             <label className="dateLabel">Start Date</label>
 
-            <input value={startDate} onChange={changeStartDate} type="month" />
+            <input
+              name="startDate"
+              value={state.startDate}
+              onChange={handleChange}
+              type="month"
+            />
           </div>
           <div className="formElement dateRow">
             <label className="dateLabel">End Date</label>
 
-            <input value={endDate} onChange={changeEndDate} type="month" />
+            <input
+              name="endDate"
+              value={state.endDate}
+              onChange={handleChange}
+              type="month"
+            />
           </div>
           <div className="checkboxContainer">
             <label htmlFor="ongoingCheckbox">Ongoing:</label>
             <input
+              name="onGoing"
               id="ongoingCheckbox"
               type="checkbox"
-              checked={onGoing}
-              onChange={changeOnGoing}
+              checked={state.onGoing}
+              onChange={handleChange}
             />
           </div>
 
