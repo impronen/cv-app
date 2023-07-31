@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function Education({ updateEducationData }) {
   const [schoolName, setSchool] = useState("");
@@ -41,16 +41,14 @@ export default function Education({ updateEducationData }) {
 
     setSchools((prevSchools) => [...prevSchools, newEducation]);
 
+    updateEducationData((prevSchools) => [...prevSchools, newEducation]);
+
     setSchool("");
     setDegree("");
     setStartDate("");
     setEndDate("");
     setOnGoing("");
   }
-
-  useEffect(() => {
-    updateEducationData(schools);
-  }, [schools, updateEducationData]);
 
   return (
     <div>

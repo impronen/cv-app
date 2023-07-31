@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function Experience({ updateExperienceData }) {
   const [company, setCompany] = useState("");
@@ -42,16 +42,14 @@ export default function Experience({ updateExperienceData }) {
 
     setJobs((prevJobs) => [...prevJobs, newJob]);
 
+    updateExperienceData((prevJobs) => [...prevJobs, newJob]);
+
     setCompany("");
     setPosition("");
     setStartDate("");
     setEndDate("");
     setOnGoing("");
   }
-
-  useEffect(() => {
-    updateExperienceData(jobs);
-  }, [jobs, updateExperienceData]);
 
   return (
     <div>
