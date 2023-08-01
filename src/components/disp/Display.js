@@ -23,7 +23,7 @@ export default function Display(props) {
         <h3 className="listHeading">Professional Experience</h3>
         <div>
           {experienceData.map((job) => (
-            <div div className="jobs" key={job.company}>
+            <div div className="jobs" key={job.id}>
               <h4 className="itemHeading">
                 {" "}
                 {job.company} | {""}
@@ -40,7 +40,7 @@ export default function Display(props) {
         <h3 className="listHeading">Formal Education</h3>
         <div>
           {educationData.map((school) => (
-            <div className="schools" key={school.schoolName}>
+            <div className="schools" key={school.id}>
               <h4 className="itemHeading">
                 {" "}
                 {school.schoolName} | {""}

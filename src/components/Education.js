@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Education({ updateEducationData }) {
   const [state, setState] = useState({
+    id: "",
     schoolName: "",
     degree: "",
     startDate: "",
@@ -22,6 +24,7 @@ export default function Education({ updateEducationData }) {
     e.preventDefault();
 
     const newEducation = {
+      id: uuidv4(),
       schoolName: state.schoolName,
       degree: state.degree,
       startDate: state.startDate,
@@ -29,9 +32,12 @@ export default function Education({ updateEducationData }) {
       onGoing: state.onGoing,
     };
 
+    console.log(newEducation);
+
     setState((prevState) => ({
       ...prevState,
       schools: [...prevState.schools, newEducation],
+      id: "",
       schoolName: "",
       degree: "",
       startDate: "",
@@ -51,6 +57,7 @@ export default function Education({ updateEducationData }) {
             <label>School</label>
             <input
               name="schoolName"
+              required
               value={state.schoolName}
               onChange={handleChange}
             />
