@@ -79,7 +79,7 @@ export default function GeneralInfo({ updateGeneralData }) {
 
         <div className="formElement">
           <label>
-            <span>Tel</span>
+            <span>Phone</span>
           </label>
 
           <input

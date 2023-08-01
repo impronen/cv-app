@@ -39,7 +39,23 @@ label {
 
 .mainContainer {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    text-align: center;
+  }
+  .mainContainer {
+    flex-direction: column;
+  }
+  .generalInfo,
+  .educationForm,
+  .experienceForm,
+  .infoContainer {
+    margin: 15px;
+  }
 }
 
 .generalInfo,
