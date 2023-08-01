@@ -46,3 +46,27 @@ These would a) make the label go away from the input field when it is in focus +
 But my code just isn't working, the transitions on the labels won't run when I select the form input. I cannot seem to seem to understand why not. Similar syntax works in this universe.io form element https://uiverse.io/Maximinodotpy/thin-sheep-13, which I used as an inspiration.
 
 I haven't been able to find anything that would override the selectors. Any ideas where to head to with this?
+
+^ no answer received, left that idea and did something different.
+
+## Question about conditionals in form validation
+
+So guys, give me some hints...
+
+I'm doing form valuation for my CV app and want it to work so, that when the user tries to press submit, and some of the fields are empty, they get an error.
+
+I want to do something like this but I also want to avoid a great big if / else block:
+
+    if(name.trim()==="" || email.trim() ==""){
+      alert("required both field");
+    }
+
+I could loop over all the values with .map() or something but I also have a possibility to have either an ongoing status or end date for employment / education, so I anyway need to group those two somehow.
+
+Any ideas or should i just swallow my distaste for using if else and go with that?
+
+Damon — Today at 1:02 PM
+idk about nice solutions, but could you concatenate the values of the groupable inputs, and then just test the array of values you now have for any empties
+Damon — Today at 1:03 PM
+if(name.trim()==="" || (ongoing+endDate).trim() ==""){
+or something like that

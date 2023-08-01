@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import ErrorModal from "./ErrorModal";
 
 export default function Experience({ updateExperienceData }) {
   const [state, setState] = useState({
+    id: "",
     company: "",
     position: "",
     startDate: "",
     endDate: "",
     onGoing: false,
     jobs: [],
+    showErrorModal: false,
   });
 
   function handleChange(e) {
@@ -22,6 +26,7 @@ export default function Experience({ updateExperienceData }) {
     e.preventDefault();
 
     const newJob = {
+      id: uuidv4(),
       company: state.company,
       position: state.position,
       startDate: state.startDate,
@@ -29,9 +34,23 @@ export default function Experience({ updateExperienceData }) {
       onGoing: state.onGoing,
     };
 
+    if (
+      newJob.company.trim() === "" ||
+      newJob.position.trim() === "" ||
+      newJob.startDate.trim() === "" ||
+      newJob.endDate.trim() + newJob.onGoing.trim() === ""
+    ) {
+      setState((prevState) => ({
+        ...prevState,
+        showErrorModal: true,
+      }));
+      return;
+    }
+
     setState((prevState) => ({
       ...prevState,
       jobs: [...prevState.jobs, newJob],
+      id: "",
       company: "",
       position: "",
       startDate: "",
@@ -40,6 +59,13 @@ export default function Experience({ updateExperienceData }) {
     }));
 
     updateExperienceData((prevJobs) => [...prevJobs, newJob]);
+  }
+
+  function closeErrorModal() {
+    setState((prevState) => ({
+      ...prevState,
+      showErrorModal: false,
+    }));
   }
 
   return (
@@ -97,6 +123,10 @@ export default function Experience({ updateExperienceData }) {
           <button type="submit">Add new Experience</button>
         </div>
       </form>
+      <ErrorModal
+        showErrorModal={state.showErrorModal}
+        closeErrorModal={closeErrorModal}
+      />
     </div>
   );
 }

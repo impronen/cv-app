@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import ErrorModal from "./ErrorModal";
 
 export default function Education({ updateEducationData }) {
   const [state, setState] = useState({
@@ -10,6 +11,7 @@ export default function Education({ updateEducationData }) {
     endDate: "",
     onGoing: "",
     schools: [],
+    showErrorModal: false,
   });
 
   function handleChange(e) {
@@ -32,8 +34,18 @@ export default function Education({ updateEducationData }) {
       onGoing: state.onGoing,
     };
 
-    console.log(newEducation);
-
+    if (
+      newEducation.degree.trim() === "" ||
+      newEducation.schoolName.trim() === "" ||
+      newEducation.startDate.trim() === "" ||
+      newEducation.endDate.trim() + newEducation.onGoing.trim() === ""
+    ) {
+      setState((prevState) => ({
+        ...prevState,
+        showErrorModal: true,
+      }));
+      return;
+    }
     setState((prevState) => ({
       ...prevState,
       schools: [...prevState.schools, newEducation],
@@ -48,6 +60,12 @@ export default function Education({ updateEducationData }) {
     updateEducationData((prevSchools) => [...prevSchools, newEducation]);
   }
 
+  function closeErrorModal() {
+    setState((prevState) => ({
+      ...prevState,
+      showErrorModal: false,
+    }));
+  }
   return (
     <div>
       <h2 className="listHeading">Add Education</h2>
@@ -101,6 +119,10 @@ export default function Education({ updateEducationData }) {
           <button type="submit">Add new Education</button>
         </div>
       </form>
+      <ErrorModal
+        showErrorModal={state.showErrorModal}
+        closeErrorModal={closeErrorModal}
+      />
     </div>
   );
 }

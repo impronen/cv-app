@@ -150,3 +150,24 @@ input[type="month"] {
   color: #1f2726;
   margin-bottom: 10px;
 }
+
+.errorModal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  transform: translate(-60%, -50%);
+  padding: 30px;
+  background-color: #666a86;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(200, 200, 200);
+  z-index: 999;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.185);
+}
+
+.errorModal button {
+  max-width: 50%;
+  padding: 10px 25px 10px;
+}
