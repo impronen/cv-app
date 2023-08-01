@@ -38,7 +38,7 @@ export default function Education({ updateEducationData }) {
       newEducation.degree.trim() === "" ||
       newEducation.schoolName.trim() === "" ||
       newEducation.startDate.trim() === "" ||
-      newEducation.endDate.trim() + newEducation.onGoing.trim() === ""
+      (newEducation.onGoing === false && newEducation.endDate.trim() === "")
     ) {
       setState((prevState) => ({
         ...prevState,

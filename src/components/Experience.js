@@ -38,7 +38,7 @@ export default function Experience({ updateExperienceData }) {
       newJob.company.trim() === "" ||
       newJob.position.trim() === "" ||
       newJob.startDate.trim() === "" ||
-      newJob.endDate.trim() + newJob.onGoing.trim() === ""
+      (newJob.onGoing === false && newJob.endDate.trim() === "")
     ) {
       setState((prevState) => ({
         ...prevState,
